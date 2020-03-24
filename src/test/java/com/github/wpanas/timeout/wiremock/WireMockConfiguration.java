@@ -111,7 +111,6 @@ public class WireMockConfiguration implements SmartLifecycle {
 		}
 		reRegisterServerWithResetMappings();
 		reRegisterBeans();
-		updateCurrentServer();
 	}
 
 	private void reRegisterBeans() {
