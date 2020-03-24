@@ -1,0 +1,6 @@
+# Application Listeners
+org.springframework.context.ApplicationListener=\
+com.github.wpanas.timeout.wiremock.WireMockApplicationListener
+# Test Execution Listeners
+org.springframework.test.context.TestExecutionListener=\
+com.github.wpanas.timeout.wiremock.WireMockTestExecutionListener

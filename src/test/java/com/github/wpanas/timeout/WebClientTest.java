@@ -7,7 +7,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.TestConfiguration;
-import org.springframework.cloud.contract.wiremock.AutoConfigureWireMock;
+import com.github.wpanas.timeout.wiremock.AutoConfigureWireMock;
 import org.springframework.context.annotation.Bean;
 
 import static com.github.tomakehurst.wiremock.client.WireMock.*;
@@ -34,15 +34,15 @@ class WebClientTest {
 
     @TestConfiguration
     static class WebClientTestConfiguration {
-//        @Bean
-//        Stubber stubber(WireMockServer wireMockServer) {
-//            return new Stubber(wireMockServer);
-//        }
-
         @Bean
-        Stubber stubberWithoutDeps() {
-            return new Stubber();
+        Stubber stubber(WireMockServer wireMockServer) {
+            return new Stubber(wireMockServer);
         }
+
+//        @Bean
+//        Stubber stubberWithoutDeps() {
+//            return new Stubber();
+//        }
     }
 
     static class Stubber {
