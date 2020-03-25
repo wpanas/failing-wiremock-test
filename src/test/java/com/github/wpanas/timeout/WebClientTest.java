@@ -34,15 +34,15 @@ class WebClientTest {
 
     @TestConfiguration
     static class WebClientTestConfiguration {
-        @Bean
-        Stubber stubber(WireMockServer wireMockServer) {
-            return new Stubber(wireMockServer);
-        }
-
 //        @Bean
-//        Stubber stubberWithoutDeps() {
-//            return new Stubber();
+//        Stubber stubber(WireMockServer wireMockServer) {
+//            return new Stubber(wireMockServer);
 //        }
+
+        @Bean
+        Stubber stubberWithoutDeps() {
+            return new Stubber();
+        }
     }
 
     static class Stubber {
